@@ -2,158 +2,207 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Skript Stone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perenity | Minecraft Developer</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(-45deg, #ff0000, #ff69b4, #8a2be2, #ff69b4, #ff0000);
-      background-size: 500% 500%;
-      animation: gradientMove 15s ease infinite;
-      color: #333;
-      display: flex;
-      flex-direction: column;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 4rem 2rem;
       min-height: 100vh;
     }
 
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    header {
-      background-color: rgba(31, 31, 31, 0.95);
-      color: white;
-      padding: 20px 0 10px 0;
-      text-align: center;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    header h1 {
-      font-size: 2em;
-      margin-bottom: 5px;
-    }
-
-    header p {
-      font-size: 1em;
-      color: #ccc;
-    }
-
-    .nav-buttons {
-      margin-top: 10px;
-    }
-
-    .nav-button {
-      display: inline-block;
-      margin: 10px 5px;
-      padding: 10px 20px;
-      font-size: 1em;
-      text-decoration: none;
-      background-color: #4a90e2;
-      color: white;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
-
-    .nav-button:hover {
-      background-color: #357ABD;
-    }
-
-    main {
+    .header {
       display: flex;
+      align-items: center;
       justify-content: center;
-      padding: 40px 20px;
-      margin-top: 30px;
+      gap: 1rem;
     }
 
-    .content {
-      max-width: 900px;
-      width: 100%;
-      text-align: center;
-      background-color: rgba(255, 255, 255, 0.95);
-      padding: 30px 35px;
-      border-radius: 12px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    .header img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid white;
     }
 
-    .content h1 {
-      font-size: 2.5em;
-      color: #e53935;
-      margin-bottom: 20px;
-      font-weight: bold;
+    h1 {
+      font-size: 4rem;
+      margin: 0;
     }
 
-    .content h2 {
-      font-size: 1.8em;
-      margin-bottom: 15px;
-      color: #1f1f1f;
+    h2 {
+      font-weight: normal;
+      font-size: 1.1rem;
+      color: #4545c4;
+      margin-top: 0.5rem;
     }
 
-    .content p {
-      font-size: 1.05em;
+    p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 2rem auto;
       line-height: 1.6;
-      margin-bottom: 15px;
     }
 
-    footer {
-      background-color: rgba(31, 31, 31, 0.95);
+    .contact {
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+
+    .highlight {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-family: monospace;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      border: 2px solid #7f7fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 40px;
+      background: transparent;
       color: white;
-      text-align: center;
-      padding: 10px 0;
-      margin-top: auto;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: fit-content;
+    }
+
+    .btn:hover {
+      background: #7f7fff;
+      color: black;
+    }
+
+    .dropdown {
+      margin-top: 0.5rem;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 1rem;
+      border-radius: 10px;
+      max-width: 700px;
+      width: 100%;
+      display: none;
+      font-size: 1rem;
+      color: #ffffff;
+      text-align: left;
+      white-space: pre-line;
+    }
+
+    .icons {
+      margin-top: 2rem;
+    }
+
+    .icons a {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    .icons img {
+      width: 32px;
+      transition: transform 0.3s ease;
+    }
+
+    .icons img:hover {
+      transform: scale(1.2);
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Skript Stone</h1>
-    <p>Custom Minecraft Skripts & Web Development</p>
-    <div class="nav-buttons">
-      <a href="skript.html" class="nav-button">Skript Development</a>
-      <a href="purchase.html" class="nav-button">Purchase</a>
-      <a href="reviews.html" class="nav-button">Reviews</a>
-      <a href="contact.html" class="nav-button">Contact Me</a>
+  <div class="container">
+    <div class="header">
+      <img src="https://bfp6sy4hhd.ufs.sh/f/9gMjOH3aKVehiVQwT9oJjVdRP0NOUCBehE3r2zlZTGoXMaYS" alt="Perenity PFP">
+      <h1>perenity</h1>
     </div>
-  </header>
+    <h2>Professional Minecraft Skript Developer & Website Designer</h2>
+    <p>
+      Hi I'm <strong>Perenity</strong>, a passionate and professional Minecraft Skript developer and website designer.
+      I specialize in creating high-quality custom plugins and sleek, responsive websites tailored to your imagination.
+      Whether you're building a server or a brand I’ve got you covered.
+    </p>
 
-  <main>
-    <div class="content">
-      <h1><strong>Commissions Closed For Now!</strong></h1>
-      <h2>About Me</h2>
-      <p>
-        Hi, I'm Perenity, a passionate developer with over 3+ years of experience in coding. I specialize in creating custom Minecraft Skripts tailored for SMPs and event based servers, helping you bring unique ideas to life. I also offer website development, available exclusively through custom orders. Every project is built with care to ensure it fits your exact vision, whether it’s enhancing gameplay or building a website from scratch.
-      </p>
-      <p>
-        I’m currently exploring mod development for Minecraft and other games, with the goal of enhancing gameplay and creating deeper, more immersive experiences. While this feature isn’t available just yet, I’m actively experimenting and learning so I can offer even more exciting content in the future. My focus is always on improving and delivering tools that give both current and future clients the best possible experience.
-      </p>
-      <p>
-        And you're probably wondering what’s the difference between Skripts and mods?
-      </p>
-      <p>
-        <strong>Skripts</strong> are lightweight server side scripts written in a simplified language using the Skript plugin. They let you add features, mechanics, and commands to a Minecraft server <em>without</em> needing to code in Java or modify the client. They're perfect for servers that want fast, flexible, and easy to manage customizations.
-      </p>
-      <p>
-        <strong>Mods</strong>, on the other hand, are more complex and powerful. They’re typically written in Java and require players to install them on their own game clients. Mods can change the game's mechanics at a much deeper level adding new blocks, items, dimensions, and more immersive systems that wouldn’t be possible with Skript alone.
-      </p>
-      <p>
-        I plan to support both in the future, giving players and server owners more ways to build truly unique experiences.
-      </p>
+    <div class="contact">
+      📩 <strong>Contact Me:</strong><br>
+      Discord: <span class="highlight">@perenity_999</span><br>
+      Email: <span class="highlight">skriptstoneservice@gmail.com</span>
     </div>
-  </main>
 
-  <footer>
-    © 2025 Skript Stone.
-  </footer>
+    <div class="buttons">
+      <div class="btn" onclick="toggleDropdown('elixirDropdown')">Elixir SMP</div>
+      <div class="dropdown" id="elixirDropdown">
+        Every player spawns with a random effect (Strength, Speed, Haste, or Health Boost).<br><br>
+        Killing increases the effect's level. Dying drops it. Reach -6 and you’re out.<br><br>
+        Adds tension and growth to PvP gameplay over time.
+      </div>
+
+      <div class="btn" onclick="toggleDropdown('warpDropdown')">Warp SMP</div>
+      <div class="dropdown" id="warpDropdown">
+Warp SMP Plugin
+Time Points are the heart of Warp SMP.
+
+You gain +1 Time Point per player kill. But losing a fight? That costs you a Time Point. Dropping to -6 gets you permanently banned.
+
+Time Anomaly Freezes
+Each Time Point unlocks a stronger freeze ability:
+
++1: Freeze nearby players (2-block radius, 2s) also gain +1 permanent heart
++2: 3-block radius, 2.5s
++3: 4-block radius, 3s
++4: 5-block radius, 3.5s
++5: 6-block radius, 5s
+
+Negative Penalties
+Going into the negatives slows you down and it adds up:
+
+-1: Move 5% slower
+-2: Move 10% slower
+-3: Move 15% slower
+-4: Move 20% slower
+-5: Move 25% slower
+-6: Banishment — you're Death banned
+
+Passive Abilities (Unlocked at +3 TP)
+Once you reach +3 Time Points, you will get 1 out of 6 of these effects that randomly activate:
+
+🍖 Hunger Pulse — Hunger II (5s), 7% chance  
+⏳ Slow Dig — Mining Fatigue I (5s), 5% chance  
+💢 Weak Pulse — Weakness I (4s), 4.5% chance  
+🩸 Desperation Strength — Strength III (7s), 3% chance  
+⚡ Lightning Spark — Struck by lightning (2.5 hearts), 4% chance  
+🧤 Hand Flicker — Can’t use hand (5.5s), 2% chance
+      </div>
+
+
+    <div class="icons">
+      <a href="https://www.youtube.com/@PerenityReal" target="_blank" title="YouTube">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968852.png" alt="YouTube">
+      </a>
+      <a href="https://www.paypal.com/paypalme/perenity" target="_blank" title="PayPal">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174861.png" alt="PayPal">
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function toggleDropdown(id) {
+      const dropdown = document.getElementById(id);
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+  </script>
 </body>
 </html>
