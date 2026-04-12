@@ -42,7 +42,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 60px;
+      padding: 15px 5%;
       position: fixed;
       width: 100%;
       box-sizing: border-box;
@@ -52,84 +52,100 @@
       border-bottom: 1px solid var(--border-color);
     }
 
-    .logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.1rem; }
-    .logo img { width: 28px; height: 28px; border-radius: 50%; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1rem; }
+    .logo img { width: 24px; height: 24px; border-radius: 50%; }
 
-    .nav-right { display: flex; gap: 32px; align-items: center; }
-    .nav-links { display: flex; gap: 32px; align-items: center; }
-    .nav-links a { color: var(--text-gray); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
-    .nav-links a:hover { color: var(--text-main); }
-
+    .nav-right { display: flex; gap: 15px; align-items: center; }
+    .nav-links { display: flex; gap: 15px; align-items: center; }
+    .nav-links a { color: var(--text-gray); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
+    
     .theme-toggle { background: none; border: 1px solid var(--border-color); color: var(--text-main); padding: 6px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; }
-    .btn-nav { border: 1px solid var(--border-color); padding: 8px 18px; border-radius: 8px; color: var(--text-main); font-size: 0.85rem; text-decoration: none; }
+    .btn-nav { border: 1px solid var(--border-color); padding: 6px 14px; border-radius: 8px; color: var(--text-main); font-size: 0.8rem; text-decoration: none; }
 
-    .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-    .badge { background: rgba(128, 128, 128, 0.05); border: 1px solid var(--border-color); padding: 6px 14px; border-radius: 20px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 24px; color: var(--text-gray); display: flex; align-items: center; gap: 10px; }
-    .badge-icon { width: 16px; height: 16px; border-radius: 50%; object-fit: cover; }
-    h1 { font-size: 5.5rem; margin: 0; font-weight: 800; letter-spacing: -3px; line-height: 1; }
-    .sub-tagline { font-size: 1.4rem; color: var(--text-gray); margin: 20px 0; }
-    .description { max-width: 520px; color: var(--text-gray); font-size: 1rem; line-height: 1.6; margin-bottom: 40px; }
+    .hero { 
+      min-height: 100vh; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: center; 
+      align-items: center; 
+      text-align: center; 
+      padding: 80px 20px 40px;
+      box-sizing: border-box;
+    }
 
-    #portfolio { padding: 100px 60px; max-width: 1100px; margin: 0 auto; text-align: center; }
+    .badge { background: rgba(128, 128, 128, 0.05); border: 1px solid var(--border-color); padding: 6px 14px; border-radius: 20px; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; color: var(--text-gray); display: flex; align-items: center; gap: 8px; }
+    .badge-icon { width: 14px; height: 14px; border-radius: 50%; object-fit: cover; }
+    
+    h1 { font-size: clamp(3rem, 12vw, 5.5rem); margin: 0; font-weight: 800; letter-spacing: -2px; line-height: 1; }
+    .sub-tagline { font-size: clamp(1.1rem, 4vw, 1.4rem); color: var(--text-gray); margin: 15px 0; }
+    .description { max-width: 520px; color: var(--text-gray); font-size: 0.95rem; line-height: 1.6; margin-bottom: 35px; }
+    
+    .cta-group { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .btn-primary, .btn-secondary { padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; flex: 1; min-width: 140px; max-width: 200px; }
+    .btn-primary { background: var(--btn-primary-bg); color: var(--btn-primary-text); }
+    .btn-secondary { border: 1px solid var(--border-color); color: var(--text-main); }
+
+    #portfolio { padding: 80px 5%; max-width: 1100px; margin: 0 auto; text-align: center; }
     .portfolio-item { 
       background: var(--card-bg); 
       border: 1px solid var(--border-color); 
       border-radius: 16px; 
       overflow: hidden; 
       margin: 0 auto; 
+      width: 100%;
       max-width: 600px; 
-      transition: all 0.3s ease; 
     }
-    .portfolio-trigger { 
-      padding: 30px; 
-      cursor: pointer; 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-    }
-    .portfolio-trigger h3 { margin: 0; font-size: 1.5rem; letter-spacing: -1px; }
+    .portfolio-trigger { padding: 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .portfolio-trigger h3 { margin: 0; font-size: 1.3rem; }
+    
     .portfolio-content { 
       max-height: 0; 
       overflow: hidden; 
-      transition: max-height 0.5s ease, padding 0.5s ease; 
+      transition: all 0.4s ease; 
       text-align: left; 
-      background: rgba(255,255,255,0.02);
     }
     .portfolio-item.active .portfolio-content { 
-      max-height: 1000px; 
-      padding: 0 30px 40px 30px; 
+      max-height: 2000px; 
+      padding: 0 25px 30px 25px; 
       border-top: 1px solid var(--border-color);
     }
-    .portfolio-item.active .arrow { transform: rotate(180deg); }
-    .arrow { transition: transform 0.3s ease; }
 
-    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
-    .info-tag { font-size: 0.8rem; color: var(--text-gray); margin-bottom: 5px; display: block; text-transform: uppercase; }
-    .cmd-list { background: #000; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.85rem; border: 1px solid #222; }
-    .cmd-item { margin-bottom: 8px; color: #fff; }
-    .cmd-desc { color: #666; display: block; font-size: 0.75rem; margin-top: 2px; }
+    .info-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 20px; }
+    .info-tag { font-size: 0.75rem; color: var(--text-gray); margin-bottom: 5px; display: block; text-transform: uppercase; font-weight: 600; }
+    .cmd-list { background: #000; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.8rem; border: 1px solid #222; overflow-x: auto; }
+    .cmd-item { margin-bottom: 10px; color: #fff; white-space: nowrap; }
+    .cmd-desc { color: #666; display: block; font-size: 0.7rem; margin-top: 2px; }
 
-    #pricing { padding: 100px 60px; max-width: 1100px; margin: 0 auto; text-align: center; }
-    .pricing-header h2 { font-size: 3rem; letter-spacing: -2px; margin-bottom: 10px; }
-    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .pricing-card { background: var(--card-bg); border: 1px solid var(--border-color); padding: 40px 30px; border-radius: 16px; text-align: left; display: flex; flex-direction: column; transition: transform 0.3s; }
-    .pricing-card:hover { transform: translateY(-5px); }
-    .custom-card { grid-column: 2; margin-top: 10px; } 
-    .tier-name { font-size: 0.8rem; text-transform: uppercase; color: var(--text-gray); margin-bottom: 10px; }
-    .price { font-size: 2rem; font-weight: 700; margin-bottom: 30px; }
-    .features-list { list-style: none; padding: 0; margin: 0 0 40px 0; flex-grow: 1; }
-    .features-list li { color: var(--text-gray); margin-bottom: 12px; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; }
-    .features-list li::before { content: "•"; color: #444; }
-    .btn-quote { background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: var(--text-main); text-align: center; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
-    .btn-quote:hover { background: var(--text-main); color: var(--bg-color); }
-    .btn-primary { background: var(--btn-primary-bg); color: var(--btn-primary-text); padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; }
-    .btn-secondary { border: 1px solid var(--border-color); color: var(--text-main); padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; }
+    #pricing { padding: 60px 5%; max-width: 1100px; margin: 0 auto; text-align: center; }
+    .pricing-header h2 { font-size: clamp(2rem, 8vw, 3rem); letter-spacing: -1.5px; margin-bottom: 10px; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; }
+    
+    .pricing-card { 
+      background: var(--card-bg); 
+      border: 1px solid var(--border-color); 
+      padding: 30px; 
+      border-radius: 16px; 
+      text-align: left; 
+      display: flex; 
+      flex-direction: column; 
+    }
+    .price { font-size: 1.8rem; font-weight: 700; margin-bottom: 25px; }
+    .features-list { list-style: none; padding: 0; margin: 0 0 30px 0; flex-grow: 1; }
+    .features-list li { color: var(--text-gray); margin-bottom: 10px; font-size: 0.85rem; display: flex; align-items: center; gap: 10px; }
+    .btn-quote { background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); color: var(--text-main); text-align: center; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.2s; }
 
-    @media (max-width: 900px) {
+    @media (min-width: 768px) {
+      .info-grid { grid-template-columns: 1fr 1fr; }
+      nav { padding: 20px 60px; }
+      .logo { font-size: 1.1rem; }
+      .btn-nav { font-size: 0.85rem; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero { padding-top: 100px; }
       .pricing-grid { grid-template-columns: 1fr; }
-      .custom-card { grid-column: auto; }
-      h1 { font-size: 3.5rem; }
-      nav { padding: 20px; }
+      .custom-card { order: 4; }
     }
   </style>
 </head>
@@ -144,10 +160,10 @@
       <div class="nav-links">
         <a href="#portfolio">Portfolio</a>
         <a href="#pricing">Pricing</a>
-        <button class="theme-toggle" onclick="toggleTheme()">
-          <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        </button>
       </div>
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
       <a href="https://discord.gg/8qqTGnh66x" class="btn-nav">Order Now</a>
     </div>
   </nav>
@@ -181,11 +197,11 @@
         <div class="info-grid">
           <div>
             <span class="info-tag">Core Concept</span>
-            <p style="font-size: 0.9rem; color: var(--text-gray); margin-top: 0;">A survival system where your life and inventory capacity are tied together by your "Alchemy" level. Reach zero, and you are death banned.</p>
+            <p style="font-size: 0.9rem; color: var(--text-gray); margin-top: 0;">Survival where life and inventory are tied to "Alchemy" level. Reach zero, and you are death banned.</p>
           </div>
           <div>
             <span class="info-tag">Mechanics</span>
-            <ul style="font-size: 0.85rem; color: var(--text-gray); padding-left: 15px;">
+            <ul style="font-size: 0.85rem; color: var(--text-gray); padding-left: 15px; margin-top: 0;">
               <li>Start with 5 potion slots</li>
               <li>Kill = +1 Alchemy slot</li>
               <li>Death = -1 Alchemy slot</li>
@@ -197,11 +213,9 @@
         <span class="info-tag" style="margin-top: 20px;">System Commands</span>
         <div class="cmd-list">
           <div class="cmd-item">/Alchemy <span class="cmd-desc">Check your current slot limit</span></div>
-          <div class="cmd-item">/withdraw [amount] <span class="cmd-desc">Convert Alchemy levels into physical items</span></div>
-          <div class="cmd-item">/Alchemy-bans <span class="cmd-desc">View a list of currently death-banned players</span></div>
-          <div class="cmd-item">/Alchemy get [player] <span class="cmd-desc">Admin: View player stats</span></div>
-          <div class="cmd-item">/Alchemy set [player] <span class="cmd-desc">Admin: Adjust player stats</span></div>
-          <div class="cmd-item">/Alchemysmp getitem <span class="cmd-desc">Admin: Spawn mythic's, revives/alchemy items</span></div>
+          <div class="cmd-item">/withdraw [amount] <span class="cmd-desc">Convert levels into items</span></div>
+          <div class="cmd-item">/Alchemy-bans <span class="cmd-desc">View death-banned players</span></div>
+          <div class="cmd-item">/Alchemy get [player] <span class="cmd-desc">Admin: View stats</span></div>
         </div>
       </div>
     </div>
@@ -210,7 +224,7 @@
   <section id="pricing">
     <div class="pricing-header">
       <h2>Commission Rates</h2>
-      <p>Pricing designed to fit any project scale. We focus on lightweight code that scales with your community.</p>
+      <p>Pricing designed to fit any project scale.</p>
     </div>
 
     <div class="pricing-grid">
@@ -220,8 +234,8 @@
         <ul class="features-list">
           <li>Simple commands</li>
           <li>Small features</li>
-          <li>Basic cooldown systems</li>
-          <li>Minor edits/fixes</li>
+          <li>Basic cooldowns</li>
+          <li>Minor fixes</li>
         </ul>
         <a href="https://discord.gg/8qqTGnh66x" class="btn-quote">Get Quote</a>
       </div>
@@ -245,7 +259,7 @@
           <li>Advanced particles</li>
           <li>Custom GUIs + systems</li>
           <li>Combat mechanics</li>
-          <li>Medium-sized features</li>
+          <li>Medium features</li>
         </ul>
         <a href="https://discord.gg/8qqTGnh66x" class="btn-quote">Get Quote</a>
       </div>
@@ -256,8 +270,8 @@
         <ul class="features-list">
           <li>Full SMP systems</li>
           <li>Large-scale mechanics</li>
-          <li>Fully unique requests</li>
-          <li>Complexity-based pricing</li>
+          <li>Unique requests</li>
+          <li>Complexity-based</li>
         </ul>
         <a href="https://discord.gg/8qqTGnh66x" class="btn-quote">Get Quote</a>
       </div>
@@ -266,8 +280,7 @@
 
   <script>
     function togglePortfolio() {
-      const item = document.getElementById('alchemy-project');
-      item.classList.toggle('active');
+      document.getElementById('alchemy-project').classList.toggle('active');
     }
 
     function toggleTheme() {
