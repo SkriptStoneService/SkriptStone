@@ -149,13 +149,13 @@
     }
 
     .hero {
-      min-height: 100vh;
+      min-height: 70vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 100px 20px 40px;
+      padding: 140px 20px 60px; 
       box-sizing: border-box;
     }
 
@@ -230,7 +230,7 @@
     }
 
     #portfolio {
-      padding: 80px 5%;
+      padding: 40px 5% 80px; /* Reduced top padding from 80px */
       max-width: 1100px;
       margin: 0 auto;
       text-align: center;
@@ -259,7 +259,6 @@
       font-size: 1.3rem;
     }
 
-    /* Price Badge Styles */
     .title-group {
       display: flex;
       align-items: center;
@@ -295,6 +294,23 @@
       max-height: 2000px;
       padding: 0 25px 30px 25px;
       border-top: 1px solid var(--border-color);
+    }
+
+    .video-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 15px;
+      width: 100%;
+    }
+
+    .video-stack video {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background: #000;
+      display: block;
     }
 
     .info-grid {
@@ -476,6 +492,29 @@
     <div class="pricing-header">
       <h2>Featured Projects</h2>
       <p>A glimpse into the systems I developed.</p>
+    </div>
+
+    <div class="portfolio-item" id="showcase-project">
+      <div class="portfolio-trigger" onclick="togglePortfolio('showcase-project')">
+        <div class="title-group">
+          <h3>Showcase</h3>
+          <span class="price-tag" style="background: rgba(255,255,255,0.05); border-color: var(--border-color); color: var(--text-main);">Visuals</span>
+        </div>
+        <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+      <div class="portfolio-content">
+        <div class="video-stack">
+          <span class="info-tag">Project Gameplay</span>
+          <video controls preload="metadata">
+            <source src="https://bfp6sy4hhd.ufs.sh/f/9gMjOH3aKVehVlbxvvtkSYHOn1evAZ46RNuTPrhxw80fUQXD" type="video/mp4">
+          </video>
+          <video controls preload="metadata">
+            <source src="https://bfp6sy4hhd.ufs.sh/f/9gMjOH3aKVeh73GetZO4oKYCEXmrL2Q3gG8vz6BDRS5OcWnj" type="video/mp4">
+          </video>
+        </div>
+      </div>
     </div>
 
     <div class="portfolio-item" id="world-expansion-project">
