@@ -230,7 +230,7 @@
     }
 
     #portfolio {
-      padding: 40px 5% 80px; /* Reduced top padding from 80px */
+      padding: 40px 5% 80px;
       max-width: 1100px;
       margin: 0 auto;
       text-align: center;
@@ -296,22 +296,60 @@
       border-top: 1px solid var(--border-color);
     }
 
-    .video-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
+    
+    .video-carousel {
+      position: relative;
+      width: 100%;
+      max-width: 100%; 
+      overflow: hidden;
       margin-top: 15px;
+      border-radius: 12px;
+      background: #000;
+      aspect-ratio: 16 / 9; 
+    }
+
+    .video-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      height: 100%;
       width: 100%;
     }
 
-    .video-stack video {
+    .video-track video {
       width: 100%;
-      height: auto;
-      border-radius: 8px;
-      border: 1px solid var(--border-color);
+      flex: 0 0 100%; 
+      height: 100%;
+      object-fit: contain; 
       background: #000;
-      display: block;
     }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.2);
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      z-index: 10;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      backdrop-filter: blur(8px);
+    }
+
+    .carousel-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .prev-btn { left: 10px; }
+    .next-btn { right: 10px; }
 
     .info-grid {
       display: grid;
@@ -505,14 +543,24 @@
         </svg>
       </div>
       <div class="portfolio-content">
-        <div class="video-stack">
-          <span class="info-tag">Project Gameplay</span>
-          <video controls preload="metadata">
-            <source src="https://bfp6sy4hhd.ufs.sh/f/9gMjOH3aKVehVlbxvvtkSYHOn1evAZ46RNuTPrhxw80fUQXD" type="video/mp4">
-          </video>
-          <video controls preload="metadata">
-            <source src="https://bfp6sy4hhd.ufs.sh/f/9gMjOH3aKVeh73GetZO4oKYCEXmrL2Q3gG8vz6BDRS5OcWnj" type="video/mp4">
-          </video>
+        <h3 class="info-tag" style="text-transform: uppercase; font-size: 1rem; margin-bottom: 10px;">Project Gameplay</h3>
+        <div class="video-carousel">
+          <button class="carousel-btn prev-btn" onclick="moveSlide(-1, event)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          
+          <div class="video-track" id="videoTrack">
+            <video controls preload="metadata">
+              <source src="https://bfp6sy4hhd.ufs.sh/f/9gMjOH3aKVehVlbxvvtkSYHOn1evAZ46RNuTPrhxw80fUQXD" type="video/mp4">
+            </video>
+            <video controls preload="metadata">
+              <source src="https://bfp6sy4hhd.ufs.sh/f/9gMjOH3aKVeh73GetZO4oKYCEXmrL2Q3gG8vz6BDRS5OcWnj" type="video/mp4">
+            </video>
+          </div>
+
+          <button class="carousel-btn next-btn" onclick="moveSlide(1, event)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
         </div>
       </div>
     </div>
@@ -697,6 +745,27 @@
       } else {
         icon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>';
       }
+    }
+
+    // SLIDE LOGIC
+    let currentSlide = 0;
+    function moveSlide(direction, event) {
+      event.stopPropagation();
+      
+      const track = document.getElementById('videoTrack');
+      const slides = track.querySelectorAll('video');
+      const totalSlides = slides.length;
+
+      currentSlide += direction;
+
+      if (currentSlide >= totalSlides) {
+        currentSlide = 0;
+      } else if (currentSlide < 0) {
+        currentSlide = totalSlides - 1;
+      }
+
+      const offset = currentSlide * -100;
+      track.style.transform = `translateX(${offset}%)`;
     }
   </script>
 </body>
