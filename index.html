@@ -402,7 +402,16 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
       margin-top: 40px;
+      justify-content: center; 
     }
+
+    .pricing-card:nth-child(3) {
+      grid-column: span 2;
+      justify-self: center;
+      width: 50%;
+    }
+
+
 
     .pricing-card {
       background: var(--card-bg);
@@ -675,49 +684,37 @@
 
     <div class="pricing-grid">
       <div class="pricing-card">
-        <span class="tier-name">Basic</span>
+        <span class="tier-name">Small Plugins</span>
         <span class="price">$5 – $15</span>
         <ul class="features-list">
-          <li>Simple commands</li>
-          <li>Small features</li>
-          <li>Basic cooldowns</li>
-          <li>Minor fixes</li>
+          <li>custom items</li>
+          <li>Simple Abilities</li>
+          <li>Simple triggers</li>
+          <li>Minor adjustments</li>
         </ul>
         <a href="https://discord.gg/8qqTGnh66x" class="btn-quote">Get Quote</a>
       </div>
 
       <div class="pricing-card">
-        <span class="tier-name">Standard</span>
-        <span class="price">$20 – $40</span>
+        <span class="tier-name">Medium Plugins</span>
+        <span class="price">$20 – $50</span>
         <ul class="features-list">
-          <li>Simple abilities</li>
-          <li>Custom items</li>
-          <li>Small GUIs</li>
-          <li>Basic systems</li>
+          <li>Core mechanics</li>
+          <li>Custom GUIs</li>
+          <li>Complex systems</li>
+          <li>Command integration</li>
         </ul>
         <a href="https://discord.gg/8qqTGnh66x" class="btn-quote">Get Quote</a>
       </div>
 
       <div class="pricing-card">
-        <span class="tier-name">Premium</span>
-        <span class="price">$50 – $120</span>
+        <span class="tier-name">Full SMP Plugin</span>
+        <span class="price">$55+</span>
         <ul class="features-list">
-          <li>Advanced particles</li>
-          <li>Custom GUIs + systems</li>
-          <li>Combat mechanics</li>
-          <li>Medium features</li>
-        </ul>
-        <a href="https://discord.gg/8qqTGnh66x" class="btn-quote">Get Quote</a>
-      </div>
-
-      <div class="pricing-card">
-        <span class="tier-name">Custom</span>
-        <span class="price">$130+</span>
-        <ul class="features-list">
-          <li>Full SMP systems</li>
-          <li>Large-scale mechanics</li>
-          <li>Unique requests</li>
-          <li>Complexity-based</li>
+          <li>Complete Complex systems</li>
+          <li>Large scale mechanics</li>
+          <li>Unique custom requests</li>
+          <li>Complex abilities</li>
         </ul>
         <a href="https://discord.gg/8qqTGnh66x" class="btn-quote">Get Quote</a>
       </div>
